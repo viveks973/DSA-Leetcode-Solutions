@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isValid(String s) {
+        Deque<Character> a=new ArrayDeque<>();
+        
+        for(char ch:s.toCharArray()){
+            if(ch=='('){
+                a.push(')');
+            }
+            else if(ch=='{'){
+                a.push('}');
+            } 
+            else if(ch=='['){
+                a.push(']');
+            }
+            else if(a.isEmpty()|| a.pop()!=ch){
+                return false;
+            }
+        }
+        return a.isEmpty();
+    }
+}
